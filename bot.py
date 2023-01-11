@@ -28,7 +28,7 @@ async def approve(_, m : Message):
         add_group(m.chat.id)
         await app.approve_chat_join_request(op.id, kk.id)
         btn = InlineKeyboardMarkup([[InlineKeyboardButton("🎥 JOIN UPDATE CHANNEL 🎥", url="https://t.me/REQUSET_ACCEPT_BOT")]])
-        await app.send_photo(kk.id, "**Hello {}!\n Yor request to join {} Was Approved .🏻\n\n**".format(m.from_user.mention, m.chat.title))
+        await app.send_photo(kk.id, "Hello {}!\n Yor request to join {} Was Approved .🏻\n\n".format(m.from_user.mention, m.chat.title))
         reply_markup=btn
         add_user(kk.id)
     except errors.PeerIdInvalid as e:
