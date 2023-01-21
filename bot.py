@@ -46,10 +46,10 @@ async def op(_, m :Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🗯 Channel", url="https://t.me/Auto_Request_Acceptor_BOT"),
-                        InlineKeyboardButton("💬 Support", url="https://t.me/Auto_Request_Acceptor_BOT")
+                        InlineKeyboardButton("🗯 Channel", url="https://t.me/REQUSET_ACCEPT_BOT"),
+                        InlineKeyboardButton("💬 Support", url="https://t.me/REQUSET_ACCEPT_BOT")
                     ],[
-                        InlineKeyboardButton("➕ Add me to your Chat ➕", url="https://t.me/@Auto_Request_Acceptor_BOT")
+                        InlineKeyboardButton("➕ Add me to your Channel ➕", url="https://t.me/Autoacceptor12_bot?startchannel=true")
                     ]
                 ]
             )
