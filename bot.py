@@ -35,7 +35,7 @@ async def approve(_, m : Message):
                 ]
             ]
         )
-        await app.send_photo(kk.id,"https://telegra.ph/file/7e154620a0984ecc1e6a2.jpg",f"**Hello {m.from_user.mention}!\nYou Request To Join {m.chat.title} Was Approved.🏻",
+        await app.send_text(kk.id,f"**Hello {m.from_user.mention}!\nYou Request To Join {m.chat.title} Was Approved.🏻",
         reply_markup=btn)
         add_user(kk.id)
     except errors.PeerIdInvalid as e:
