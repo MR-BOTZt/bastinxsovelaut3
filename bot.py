@@ -27,7 +27,14 @@ async def approve(_, m : Message):
     try:
         add_group(m.chat.id)
         await app.approve_chat_join_request(op.id, kk.id)
-        btn = InlineKeyboardMarkup([[InlineKeyboardButton("🎥 JOIN UPDATE CHANNEL 🎥", url="https://t.me/REQUSET_ACCEPT_BOT")]])
+        btn = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("🎥 BOT UPDATE CHANNEL 🎥", url="https://t.me/REQUSET_ACCEPT_BOT"),
+                    InlineKeyboardButton("🎥 LATEST RELEASES 🎥 ", url="https://t.me/Updatechannelhub")
+                ]
+            ]
+        )
         await app.send_photo(kk.id,"https://graph.org/file/5f062464361df13e69755.jpg",f"**Hello {m.from_user.mention}!\nYou Request To Join {m.chat.title} Was Approved.🏻",
         reply_markup=btn)
         add_user(kk.id)
