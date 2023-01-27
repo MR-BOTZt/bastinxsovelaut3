@@ -3,7 +3,7 @@ from os import path, getenv
 class Config:
     API_ID = int(getenv("API_ID", "22359038"))
     API_HASH = getenv("API_HASH", "b3901895dc193c30c808ba4f1b550ed0")
-    BOT_TOKEN = getenv("BOT_TOKEN", "5913406486:AAG5d0Pei6-ALa0zUlmHGY4vIG1qdY58gik")
+    BOT_TOKEN = getenv("BOT_TOKEN", "5913406486:AAFCQ2TRCcLGEu0yVywuQY3aiaH9FOUKFHM")
     FSUB = getenv("FSUB", "REQUSET_ACCEPT_BOT")
     CHID = int(getenv("CHID", "-1001745001470"))
     SUDO = list(map(int, getenv("SUDO", "5531461861 1878911986").split()))
