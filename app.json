@@ -2,7 +2,7 @@
     "name": "Auto Approove Bot",
     "description": "Auto approove telegram group/channel join requests bot.",
     "repository": "https://github.com/ImDenuwan/Auto-Approve-Bot",
-    "logo":"https://telegra.ph/file/a782e3bbbe40df8a4bb67.jpg",
+    "logo":"https://graph.org/file/a782e3bbbe40df8a4bb67.jpg",
     "keywords": [
         "Bot",
         "Telegram ",
@@ -21,14 +21,6 @@
     "BOT_TOKEN": {
       "description": "Enter your Bot token, get it from @BotFather",
       "required": true
-    },
-    "CHID": {
-      "description": "Enter your Force Subscribe channel ID",
-      "required": true
-    },,
-    "FSUB": {
-      "description": "Enter your Force Subscribe channel Username without @",
-      "required": true
     },,
     "SUDO": {
       "description": "Enter Bot Owners IDS",
@@ -40,7 +32,7 @@
     "formation": {
     "worker": {
       "quantity": 1,
-      "size": "free"
+      "size": "eco"
     }
   },
     "buildpacks": [
