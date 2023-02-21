@@ -10,11 +10,12 @@ app = Client(
     "approver",
     api_id=cfg.API_ID,
     api_hash=cfg.API_HASH,
-    bot_token=cfg.BOT_TOKEN
+    bot_token=cfg.BOT_TOKEN,
+    workers=200,
 )
 
 gif = [
-    'https://telegra.ph/file/7e154620a0984ecc1e6a2.jpg'
+    'https://graph.org/file/7e154620a0984ecc1e6a2.jpg'
 ]
 
 
@@ -75,38 +76,6 @@ async def op(_, m :Message):
             await m.reply_text("**🦊 Hello {}!\nwrite me private for more details**".format(m.from_user.first_name), reply_markup=keyboar)
         print(m.from_user.first_name +" Is started Your Bot!")
 
-    except UserNotParticipant:
-        key = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("🍀 Check Again 🍀", "chk")
-                ]
-            ]
-        )
-        await m.reply_text("**⚠️Access Denied!⚠️\n\nPlease Join @{} to use me.If you joined click check again button to confirm.**".format(cfg.FSUB), reply_markup=key)
-
-#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ callback ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-@app.on_callback_query(filters.regex("chk"))
-async def chk(_, cb : CallbackQuery):
-    try:
-        await app.get_chat_member(cfg.CHID, cb.from_user.id)
-        if cb.message.chat.type == enums.ChatType.PRIVATE:
-            keyboard = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton("🗯 Channel", url="https://t.me/Auto_Request_Acceptor_BOT"),
-                        InlineKeyboardButton("💬 Support", url="https://t.me/Auto_Request_Acceptor_BOT")
-                    ],[
-                        InlineKeyboardButton("➕ Add me to your Chat ➕", url="https://t.me/Auto_Request_Acceptor_BOT")
-                    ]
-                ]
-            )
-            add_user(cb.from_user.id)
-            await cb.message.edit("**🦊 Hello {}!\nI'm an auto approve [Admin Join Requests]({}) Bot.\nI can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission.\n\n__Powerd By : @Auto_Request_Acceptor_BOT**".format(cb.from_user.mention, "https://t.me/telegram/153"), reply_markup=keyboard, disable_web_page_preview=True)
-        print(cb.from_user.first_name +" Is started Your Bot!")
-    except UserNotParticipant:
-        await cb.answer("🙅‍♂️ You are not joined to channel join and try again. 🙅‍♂️")
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ info ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -166,7 +135,7 @@ async def fcast(_, m : Message):
     for usrs in allusers.find():
         try:
             userid = usrs["user_id"]
-            #print(int(userid))
+            print(int(userid))
             if m.command[0] == "fcast":
                 await m.reply_to_message.forward(int(userid))
             success +=1
