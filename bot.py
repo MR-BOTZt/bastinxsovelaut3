@@ -78,7 +78,7 @@ async def op(_, m :Message):
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ info ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-@app.on_message(filters.command("users") & filters.user(cfg.SUDO))
+@app.on_message(filters.command("users") & filters.user & cfg.SUDO))
 async def dbtool(_, m : Message):
     xx = all_users()
     x = all_groups()
